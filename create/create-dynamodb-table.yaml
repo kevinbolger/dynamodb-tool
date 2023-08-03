@@ -1,0 +1,26 @@
+Parameters:
+  TableName:
+    Description: 'The name of the DynamoDB table'
+    Type: String
+
+Resources:
+  MyDynamoDBTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: N
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      TableName: !Ref TableName
+
+Outputs:
+  DynamoDBTableName:
+    Description: 'The name of the DynamoDB table'
+    Value: !Ref TableName
+    Export:
+      Name: !Sub "${AWS::StackName}-${TableName}"

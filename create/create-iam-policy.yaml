@@ -1,0 +1,16 @@
+Parameters:
+  IAMPolicyName:
+    Description: 'The name of the IAM policy'
+    Type: String
+
+Resources:
+  MyIAMPolicy:
+    Type: 'AWS::IAM::ManagedPolicy'
+    Properties:
+      ManagedPolicyName: !Ref IAMPolicyName
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action: 'dynamodb:*'
+            Resource: '*'

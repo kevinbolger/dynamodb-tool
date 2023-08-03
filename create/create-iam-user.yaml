@@ -1,0 +1,28 @@
+Parameters:
+  IAMUserName:
+    Description: 'The name of the IAM user'
+    Type: String
+
+Resources:
+  MyIAMUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: !Ref IAMUserName
+
+  MyIAMAccessKey:
+    Type: 'AWS::IAM::AccessKey'
+    Properties:
+      UserName: !Ref MyIAMUser
+
+Outputs:
+  AccessKey:
+    Description: 'IAM User Access Key'
+    Value: !Ref MyIAMAccessKey
+    Export:
+      Name: !Sub "${AWS::StackName}-AccessKey"
+
+  SecretKey:
+    Description: 'Secret Key of IAM user'
+    Value: !GetAtt MyIAMAccessKey.SecretAccessKey
+    Export:
+      Name: !Sub "${AWS::StackName}-SecretKey"
