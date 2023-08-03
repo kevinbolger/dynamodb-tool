@@ -7,9 +7,6 @@ Thumbs.db
 # bash scripts
 *.log
 
-# AWS CloudFormation
-*.yaml
-
 # Ignore environment variables in .env file
 .env
 
