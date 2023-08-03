@@ -1,0 +1,27 @@
+# system files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# bash scripts
+*.log
+
+# AWS CloudFormation
+*.yaml
+
+# Ignore environment variables in .env file
+.env
+
+# Ignore node_modules
+node_modules/
+
+# Ignore Python virtual environment
+venv/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__
+
+# Ignore Jupyter Notebook files
+.ipynb_checkpoints
